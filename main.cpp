@@ -5,12 +5,36 @@ using namespace std;
 
 int main() {
 
-	stack<int,10> arr;	
-	for (size_t i = 0; i <15; i++)
-	{
-		arr.push(i);
+	//char str[10];
+	//gets_s(str);
+
+	stack <double, 10> num;
+	stack <char, 10> token;
+	
+	
+	while (cin) {
+		char ch;
+		cin >> ch;
+		if (ch == '=')break;
+
+		switch (ch) {
+		case '+': case '-': case '*': case '/':
+			token.push(ch);
+		case '.': case '0':
+		case '1': case '2': case '3':
+		case '4': case '5': case '6':
+		case '7': case '8': case '9':
+		{	
+			cin.putback(ch);
+			double value;
+			cin >> value;
+			num.push(value);
+		}
+
+		}
 	}
+	
 
-
-	return 0;
+	cout << num << endl;
+	cout << token << endl;
 }

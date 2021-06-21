@@ -36,5 +36,12 @@ public:
 			return this->stck[this->peak--];
 		}
 	}	
+
+	friend ostream& operator<<(ostream& ostream, stack& stack) {
+		for (size_t i = 0; i <= stack.peak; i++){
+			ostream << stack.stck[i] << " ";
+		}
+		return ostream;
+	}
 };
 
