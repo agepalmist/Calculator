@@ -2,26 +2,26 @@
 #include<iostream>
 using namespace std;
 
-template<typename T, size_t size>
+template<typename T, const int size>
 class stack
 {
 	T* stck;
-	int peak = -1;
+	int peak = -1;	
 
 public:
 
 	stack()
-		:stack{new T*[size]}{}
+		:stck{new T[size]}{}
 
-	stack(const stack<T, size_t>&) = delete;
+	stack(const stack&) = delete;
 
-	void operator=(const stack<T, size_t>&) = delete;
+	void operator=(const stack&) = delete;
 
 	~stack() { delete[]this->stck; }
 
 	void push(T value) {
 		if (this->peak == size - 1) {
-			cout << "Stack is complete" << endl;
+			cout << "Stack is complete" << endl;			
 		}
 		else {
 			this->stck[++this->peak] = value;
@@ -35,11 +35,6 @@ public:
 		else {
 			return this->stck[this->peak--];
 		}
-	}
-
-
-
-	
-	
+	}	
 };
 
