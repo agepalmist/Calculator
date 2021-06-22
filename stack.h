@@ -11,7 +11,7 @@ class stack
 public:
 
 	stack()
-		:stck{new T[size]}{}
+		:stck{ new T[size] }{}
 
 	stack(const stack&) = delete;
 
@@ -37,8 +37,12 @@ public:
 		}
 	}	
 
+	int get_size() {
+		return peak;
+	}
+
 	friend ostream& operator<<(ostream& ostream, stack& stack) {
-		for (size_t i = 0; i <= stack.peak; i++){
+		for (int i = 0; i <= stack.peak; i++){
 			ostream << stack.stck[i] << " ";
 		}
 		return ostream;

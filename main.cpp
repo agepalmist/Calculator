@@ -1,40 +1,19 @@
 #include<iostream>
-#include"stack.h"
+#include"calculate.h"
 using namespace std;
 
 
 int main() {
 
-	//char str[10];
-	//gets_s(str);
+	calculate t;
 
-	stack <double, 10> num;
-	stack <char, 10> token;
+	char str[] = "2+3-6*4";
+
 	
 	
-	while (cin) {
-		char ch;
-		cin >> ch;
-		if (ch == '=')break;
-
-		switch (ch) {
-		case '+': case '-': case '*': case '/':
-			token.push(ch);
-		case '.': case '0':
-		case '1': case '2': case '3':
-		case '4': case '5': case '6':
-		case '7': case '8': case '9':
-		{	
-			cin.putback(ch);
-			double value;
-			cin >> value;
-			num.push(value);
-		}
-
-		}
-	}
+		t.set_stack(str);
 	
-
-	cout << num << endl;
-	cout << token << endl;
+	
+	t.get_actions();
+	t.get_digits();
 }
