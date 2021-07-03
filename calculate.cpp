@@ -10,8 +10,7 @@ void calculator::scaling() {
 		}
 		if (t.kind == ';') {
 			out_stream_stack();
-			get_numbers();
-			get_operators();
+			get_numbers();			
 			operators.clear();
 			numbers.clear();
 		}		
