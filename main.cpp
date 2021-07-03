@@ -1,19 +1,12 @@
 #include<iostream>
-#include"calculate.h"
+#include"calculator.h"
 using namespace std;
 
 
 int main() {
+	calculator t;
+	t.scaling();
 
-	calculate t;
-
-	char str[] = "2+3-6*4";
-
-	
-	
-		t.set_stack(str);
-	
-	
-	t.get_actions();
-	t.get_digits();
+	//t.get_numbers();
+	//t.get_operators();
 }

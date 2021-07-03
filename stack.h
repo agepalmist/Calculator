@@ -41,6 +41,10 @@ public:
 		return peak;
 	}
 
+	void clear() {
+		peak = -1;
+	}
+
 	friend ostream& operator<<(ostream& ostream, stack& stack) {
 		for (int i = 0; i <= stack.peak; i++){
 			ostream << stack.stck[i] << " ";
