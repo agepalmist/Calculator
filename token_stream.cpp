@@ -22,11 +22,14 @@ token token_stream::get() {
 		return token{ '!',val };
 	}
 	default:
-		cerr << "Input error";
+		cerr << "Bad token";
 	}
 }
 
 void token_stream::putback(token t) {
+	if (full) {
+		cerr << "putback() into a full buffer";
+	}
 	buffer = t;
 	full = true;
 }

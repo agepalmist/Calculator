@@ -8,6 +8,7 @@ class calculator
 	stack<double,10> numbers;
 	stack<char,10> operators;  
     token_stream ts;
+    bool flag = true;
 
 public:
     calculator(){}
