@@ -10,20 +10,20 @@ void calculator::scaling() {
 		}
 		if (t.kind == ';') {
 			out_stream_stack();
-			get_numbers();			
+			get_numbers();
 			operators.clear();
 			numbers.clear();
-		}		
+		}
 		else {
 			in_stream_stack(t);
 		}
 	}
 }
 
-void calculator::in_stream_stack(token t) {	
+void calculator::in_stream_stack(token t) {
 	char ch = t.kind;
 	switch (ch) {
-	case '*': case '/': {		
+	case '*': case '/': {
 		token next = ts.get();
 		if (next.kind != '(') {
 			numbers.push(next.value);
@@ -87,6 +87,15 @@ void calculator::action(char opr) {
 		numbers.push(left * right);
 	}
 	else if (opr == '/') {
-		numbers.push(left / right);
+		try {
+			if (!right) {
+				throw runtime_error("Divide by zero!");
+			}
+			numbers.push(left / right);
+		}
+		catch (runtime_error& e) {
+			cerr << e.what() << endl;
+			exit(1);
+		}
 	}
 }
